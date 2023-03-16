@@ -1,5 +1,4 @@
-//I forgot to include the commit messages-sorry!
-
+//I forgot to include the 
 /*Creating Classes & Factories
 Hamster
 attributes:
@@ -16,7 +15,7 @@ getPrice() - return the price
 */
 
 class Hamster {
-    constructor(name){ 
+    constructor(name){ //set the name from parameter in constructor method
         this.owner = " ";
         this.name = name;
         this.price = 15;
@@ -179,7 +178,7 @@ Add a method on chef that takes three arguments and returns a new Dinner based o
 Have the Chef create 3 dinners, log the dinners
 */
 
-class Chef { 
+class Chef { //Chef should be a factory of Dinner (the one creating the dinners)
     constructor(appetizer, entree, dessert) {
         this.appetizer = appetizer;
         this.entree = entree;
@@ -208,3 +207,8 @@ const dinner3 = new Dinner (["Buffalo Chicken Wings"], [" Bangers and Mash"], ["
 console.log(dinner1.serve());
 console.log(dinner2.serve());
 console.log(dinner3.serve());
+
+//Remove anything I don't want to commit to github, then...
+//git commit -m "Dinner is served"
+//DO NOT FORGET TO PUSH TO GITHUB!
+//Submit here: https://perscholas.instructure.com/courses/1413/assignments/279079
