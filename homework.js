@@ -173,38 +173,54 @@ timmy.exercise();
 
 /*
 Chef Make Dinners
-Chef should be a factory of Dinner
-Add a constructor to dinner that sets the string properties, appetizer, entree and dessert.
-Add a method on chef that takes three arguments and returns a new Dinner based on those arguments.
-Have the Chef create 3 dinners, log the dinners
 */
 
-class Chef { 
-    constructor(appetizer, entree, dessert) {
+//Add a constructor to dinner that sets the string properties, appetizer, entree and dessert.
+class Dinner {
+    constructor(event, appetizer, entree, dessert) {
+    this.event = event;
         this.appetizer = appetizer;
-        this.entree = entree;
-        this.dessert = dessert;
-    };
-    
-    serve(appetizer, entree, dessert) {
-        return `Here is your ${this.appetizer},${this.entree} and ${this.dessert}. Bon Appétit!`
+      this.entree = entree;
+      this.dessert = dessert;
     }
-}
+  }
 
-class Dinner extends Chef {
-    constructor(appetizer, entree, dessert) {
-        super(appetizer, entree, dessert);
-        this.appetizer = appetizer;
-        this.entree = entree;
-        this.dessert = dessert;
+ 
+   //Make a factory class below called Chef
+  class ChefFactory  {
+    constructor(factoryType) {
+      this.factoryType = factoryType;
+      this.dinnerMenu = [];
+  }
+  
+    makeSomeDinners(appetizer, entree, dessert) {
+      const newDinner = new Dinner(this.factoryType, appetizer, entree, dessert);
+      this.dinnerMenu.push(newDinner);
     }
-}
+  
+    serveDinner() {
+      for (let chef of this.dinnerMenu) {
+        console.log(chef);
+      }
+    }
+  }
+  
+  let dinnerFactory = new ChefFactory('Valentine\'s Day Special');
+  
+  // create two properties, 'factoryType' and 'dinnerMenu' (but as an array)
+  //Chef Factory producing meals only for Valentine's day.
+  
+  console.log('\n❀❀❀❀❀❀❀ NOBU Chicago ❀❀❀❀❀❀❀ \n');
+  console.log(dinnerFactory);
+  
+  
+  //Make dinners
+  
+  dinnerFactory.makeSomeDinners("Crab cakes", "Butter Chicken", "Tiramisu");
+  dinnerFactory.makeSomeDinners("Fried Pickles", "Surf 'n' Turf", "Chocolate Mochi Ice-cream");
+  dinnerFactory.makeSomeDinners("Buffalo Chicken Wings", "Bangers and Mash", "Strawberry Cheesecake");
 
-//Have the Chef create 3 dinners, log the dinners
-const dinner1 = new Chef(["Crab cakes"], [" Butter Chicken"], ["Tiramisu"]);
-const dinner2 = new Dinner (["Fried Pickles"], [" Surf 'n' Turf"], ["Chocolate Mochi Ice-cream"]);
-const dinner3 = new Dinner (["Buffalo Chicken Wings"], [" Bangers and Mash"], ["Strawberry Cheesecake"]);
+  
+  console.log('\n⊲⊲⊲⊲⊲⊲ DINNER IS SERVED ⊳⊳⊳⊳⊳⊳⊳ \n');
+  dinnerFactory.serveDinner();
 
-console.log(dinner1.serve());
-console.log(dinner2.serve());
-console.log(dinner3.serve());
